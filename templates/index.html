@@ -1,0 +1,56 @@
+<!--Bootstrap codes-->
+<!--below bootstrap working by reading the codes present in base.html file-->
+
+<!--below code changes website looks and makes it work as a card (a component of bootstrap)-->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Availble Items<br><br></h1>
+    <div class="row">
+        {% for each in alldata %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ each.image_url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ each.name }}</h5>
+                    <p class="card-text">${{ each.price }}</p>
+                    <a href="#" class="btn btn-primary">Add to cart</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
+
+
+<!-- changes only looks
+
+<h1>ShopItems</h1>
+<ul>
+    {% for each in alldata %}       
+        <li>{{ each.name }} $ {{ each.price }} </li>            
+    {% endfor %}
+</ul>
+
+-->
+
+<!--code before bootstrap
+
+<h1>ShopItems</h1>
+<ul>
+    {% for each in alldata %}       
+        <li>{{ each.name }} $ {{ each.price }} </li>            
+    {% endfor %}
+</ul>
+
+-->
+
+<!--As we know our data variable now contains all the data that is name, price etc.
+    so now we need to extract that every single item from data and display it on the
+    webpage. therefore below im using for loop to do this. -->
+
+<!--here, i mentioned the dictionary key only, not its value-->
+<!--the for loop prints name and price with a dollar-->
